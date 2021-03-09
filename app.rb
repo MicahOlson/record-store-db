@@ -57,7 +57,7 @@ end
 
 post ('/albums/:id/songs') do
   @album = Album.find(params[:id].to_i())
-  song = Song.new({name: params[:song_name].gsub(/'/, "''"), album_id: @album.id})
+  song = Song.new({track: params[:song_track], name: params[:song_name].gsub(/'/, "''"), album_id: @album.id})
   song.save()
   erb(:album)
 end
@@ -65,7 +65,7 @@ end
 patch ('/albums/:id/songs/:song_id') do
   @album = Album.find(params[:id].to_i())
   song = Song.find(params[:song_id].to_i())
-  song.update(params[:name].gsub(/'/, "''"), @album.id)
+  song.update({track: params[:track], name: params[:name].gsub(/'/, "''"), album_id: @album.id})
   erb(:album)
 end
 

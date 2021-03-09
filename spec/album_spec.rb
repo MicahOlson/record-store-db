@@ -70,7 +70,7 @@ describe '#Album' do
     it("deletes all songs belonging to a deleted album") do
       album = Album.new({name: "A Love Supreme"})
       album.save()
-      song = Song.new({name: "Naima", album_id: album.id})
+      song = Song.new({track: 1, name: "Naima", album_id: album.id})
       song.save()
       album.delete()
       expect(Song.find(song.id)).to(eq(nil))
@@ -81,9 +81,9 @@ describe '#Album' do
     it("returns an album's songs") do
       album = Album.new({name: "A Love Supreme"})
       album.save()
-      song = Song.new({name: "Naima", album_id: album.id})
+      song = Song.new({track: 1, name: "Naima", album_id: album.id})
       song.save()
-      song2 = Song.new({name: "Cousin Mary", album_id: album.id})
+      song2 = Song.new({track: 2, name: "Cousin Mary", album_id: album.id})
       song2.save()
       expect(album.songs).to(eq([song, song2]))
     end

@@ -18,6 +18,7 @@ describe('create a song path', {:type => :feature}) do
     album = Album.new({:name => "Yellow Submarine", :id => nil})
     album.save
     visit("/albums/#{album.id}")
+    fill_in('song_track', :with => '1')
     fill_in('song_name', :with => 'All You Need Is Love')
     click_on('Add song')
     expect(page).to have_content('All You Need Is Love')

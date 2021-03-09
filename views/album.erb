@@ -4,11 +4,11 @@
   <h3>Album Songs</h3>
 
     <% if @album.songs %>
-      <ul>
+      <ol>
         <% @album.songs.each do |song| %>
           <li><a href="/albums/<%= @album.id %>/songs/<%= song.id %>"><%= song.name %></a></li>
         <% end %>
-      </ul>
+      </ol>
     <% else %>
       <p>There are no songs listed for this album yet.</p>
     <% end %>
@@ -17,8 +17,10 @@
 
   <form action="/albums/<%= @album.id %>/songs" method="post">
     <div class="form-group">
+      <label for="song_track">Track</label>
+      <input id="song_track" name="song_track" type="text" required>
       <label for="song_name">Song name</label>
-      <input id="song_name" name="song_name" class="form-control" type="text" required>
+      <input id="song_name" name="song_name" type="text" required>
     </div>
     <button type="submit" class="btn">Add song</button>
   </form>
