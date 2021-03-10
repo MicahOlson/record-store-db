@@ -7,6 +7,10 @@ class Album
     @id = attrs[:id]
   end
 
+  def ==(album_to_compare)
+    (self.name == album_to_compare.name) && (self.id == album_to_compare.id)
+  end
+
   def self.all
     returned_albums = DB.exec("SELECT * FROM albums ORDER BY name;")
     albums = []
@@ -21,10 +25,6 @@ class Album
   def save
     result = DB.exec("INSERT INTO albums (name) VALUES ('#{@name}') RETURNING id;")
     @id = result.first["id"].to_i
-  end
-
-  def ==(album_to_compare)
-    (self.name == album_to_compare.name) && (self.id == album_to_compare.id)
   end
 
   def self.clear

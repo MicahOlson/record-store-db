@@ -10,11 +10,7 @@ class Song
   end
 
   def ==(song_to_compare)
-    if song_to_compare != nil
-      (self.name == song_to_compare.name) && (self.album_id == song_to_compare.album_id)
-    else
-      false
-    end
+    (self.name == song_to_compare.name) && (self.album_id == song_to_compare.album_id)
   end
 
   def self.all
