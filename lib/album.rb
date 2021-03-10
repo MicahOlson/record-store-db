@@ -24,7 +24,7 @@ class Album
   end
 
   def ==(album_to_compare)
-    self.name == album_to_compare.name
+    (self.name == album_to_compare.name) && (self.id == album_to_compare.id)
   end
 
   def self.clear
