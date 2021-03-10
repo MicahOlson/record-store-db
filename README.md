@@ -1,15 +1,15 @@
 # Ruby Record Store
 
-### _This project was created solely for the education of the author(s) and is not in a complete or portfolio-ready state. It should not be considered representative of professional work._  
-  
+### _This project was created solely for the education of the author(s) and is not in a complete or portfolio-ready state. It should not be considered representative of professional work._
 \
 [Epicodus](https://www.epicodus.com/) - [Ruby and Rails](https://www.learnhowtoprogram.com/ruby-and-rails/) - [Week 3](https://www.learnhowtoprogram.com/ruby-and-rails/ruby-database-basics)
 \
-  
+\
 Date created: 3/8/21–3/11/21
-
+  
 ## Authors and Contributors
 Co-authored by:  
+Kerry Lang
 Jo Miller  
 Micah L. Olson  
 
@@ -40,8 +40,9 @@ The following concepts are covered in this project:
 
 ## License
 [GPLv3](https://choosealicense.com/licenses/gpl-3.0/)\
-Copyright &copy; 2021 Jo Miller, Micah L. Olson
+Copyright &copy; 2021 Kerry Lang, Jo Miller, Micah L. Olson
 
 ## Contact
+Kerry Lang: via <a href="https://www.linkedin.com/in/kerrylang1/" target="_blank">LinkedIn</a> or <a href="mailto:klang812@gmail.com" target="_blank">email</a>.  
 Jo Miller: via <a href="https://www.linkedin.com/in/jomillerde/" target="_blank">LinkedIn</a> or <a href="mailto:joannadawnmiller@gmail.com" target="_blank">email</a>.  
 Micah L. Olson: via <a href="https://www.linkedin.com/in/micah-lewis-olson/" target="_blank">LinkedIn</a> or <a href="mailto:micah.olson@protonmail.com" target="_blank">email</a>.

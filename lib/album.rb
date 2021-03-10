@@ -1,6 +1,6 @@
 class Album
-  attr_accessor :name
   attr_reader :id
+  attr_accessor :name
 
   def initialize(attrs)
     @name = attrs[:name]
@@ -10,7 +10,7 @@ class Album
   def self.all
     returned_albums = DB.exec("SELECT * FROM albums ORDER BY name;")
     albums = []
-    returned_albums.each() do |album|
+    returned_albums.each do |album|
       name = album["name"]
       id = album["id"].to_i
       albums.push(Album.new({name: name, id: id}))
@@ -24,7 +24,7 @@ class Album
   end
 
   def ==(album_to_compare)
-    self.name() == album_to_compare.name()
+    self.name == album_to_compare.name
   end
 
   def self.clear

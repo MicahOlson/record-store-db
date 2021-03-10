@@ -1,17 +1,17 @@
 class Song
   attr_reader :id
-  attr_accessor :track, :name, :album_id
+  attr_accessor :name, :album_id, :track
 
   def initialize(attrs)
-    @track = attrs[:track]
     @name = attrs[:name]
     @album_id = attrs[:album_id]
+    @track = attrs[:track]
     @id = attrs[:id]
   end
 
   def ==(song_to_compare)
     if song_to_compare != nil
-      (self.name() == song_to_compare.name()) && (self.album_id() == song_to_compare.album_id())
+      (self.name == song_to_compare.name) && (self.album_id == song_to_compare.album_id)
     else
       false
     end
@@ -20,7 +20,7 @@ class Song
   def self.all
     returned_songs = DB.exec("SELECT * FROM songs;")
     songs = []
-    returned_songs.each() do |song|
+    returned_songs.each do |song|
       track = song["track"].to_i
       name = song["name"]
       album_id = song["album_id"].to_i
@@ -66,7 +66,7 @@ class Song
   def self.find_by_album(alb_id)
     songs = []
     returned_songs = DB.exec("SELECT * FROM songs WHERE album_id = #{alb_id} ORDER BY track;")
-    returned_songs.each() do |song|
+    returned_songs.each do |song|
       track = song["track"].to_i
       name = song["name"]
       id = song["id"].to_i
