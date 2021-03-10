@@ -15,9 +15,9 @@
   <form action="/albums/<%= @album.id %>/songs" method="post">
     <div class="form-group">
       <label for="song_track">Track</label>
-      <input id="song_track" name="song_track" type="text" required>
+      <input id="album_song_track" name="song_track" type="text" tabindex="10" required>
       <label for="song_name">Song name</label>
-      <input id="album_song_name" name="song_name" type="text" required>
+      <input id="album_song_name" name="song_name" type="text"  tabindex="20" required>
     </div>
     <button type="submit" class="btn">Add song</button>
   </form>
