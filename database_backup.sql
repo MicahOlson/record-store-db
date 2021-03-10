@@ -33,6 +33,41 @@ CREATE TABLE public.albums (
 ALTER TABLE public.albums OWNER TO "Micah";
 
 --
+-- Name: albums_artists; Type: TABLE; Schema: public; Owner: Micah
+--
+
+CREATE TABLE public.albums_artists (
+    id integer NOT NULL,
+    artist_id integer,
+    album_id integer
+);
+
+
+ALTER TABLE public.albums_artists OWNER TO "Micah";
+
+--
+-- Name: albums_artists_id_seq; Type: SEQUENCE; Schema: public; Owner: Micah
+--
+
+CREATE SEQUENCE public.albums_artists_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.albums_artists_id_seq OWNER TO "Micah";
+
+--
+-- Name: albums_artists_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Micah
+--
+
+ALTER SEQUENCE public.albums_artists_id_seq OWNED BY public.albums_artists.id;
+
+
+--
 -- Name: albums_id_seq; Type: SEQUENCE; Schema: public; Owner: Micah
 --
 
@@ -52,6 +87,41 @@ ALTER TABLE public.albums_id_seq OWNER TO "Micah";
 --
 
 ALTER SEQUENCE public.albums_id_seq OWNED BY public.albums.id;
+
+
+--
+-- Name: artists; Type: TABLE; Schema: public; Owner: Micah
+--
+
+CREATE TABLE public.artists (
+    id integer NOT NULL,
+    name character varying,
+    album_id integer
+);
+
+
+ALTER TABLE public.artists OWNER TO "Micah";
+
+--
+-- Name: artists_id_seq; Type: SEQUENCE; Schema: public; Owner: Micah
+--
+
+CREATE SEQUENCE public.artists_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.artists_id_seq OWNER TO "Micah";
+
+--
+-- Name: artists_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Micah
+--
+
+ALTER SEQUENCE public.artists_id_seq OWNED BY public.artists.id;
 
 
 --
@@ -98,6 +168,20 @@ ALTER TABLE ONLY public.albums ALTER COLUMN id SET DEFAULT nextval('public.album
 
 
 --
+-- Name: albums_artists id; Type: DEFAULT; Schema: public; Owner: Micah
+--
+
+ALTER TABLE ONLY public.albums_artists ALTER COLUMN id SET DEFAULT nextval('public.albums_artists_id_seq'::regclass);
+
+
+--
+-- Name: artists id; Type: DEFAULT; Schema: public; Owner: Micah
+--
+
+ALTER TABLE ONLY public.artists ALTER COLUMN id SET DEFAULT nextval('public.artists_id_seq'::regclass);
+
+
+--
 -- Name: songs id; Type: DEFAULT; Schema: public; Owner: Micah
 --
 
@@ -116,6 +200,26 @@ COPY public.albums (id, name) FROM stdin;
 100	Moon Safari
 101	Paul's Boutique
 97	First Band on the Moon
+103	Night Wave
+\.
+
+
+--
+-- Data for Name: albums_artists; Type: TABLE DATA; Schema: public; Owner: Micah
+--
+
+COPY public.albums_artists (id, artist_id, album_id) FROM stdin;
+\.
+
+
+--
+-- Data for Name: artists; Type: TABLE DATA; Schema: public; Owner: Micah
+--
+
+COPY public.artists (id, name, album_id) FROM stdin;
+1	The Cardigans	97
+2	The Cardigans	95
+3	The Cardigans	95
 \.
 
 
@@ -206,21 +310,54 @@ COPY public.songs (id, name, album_id, track) FROM stdin;
 219	Take Your Fingers from My Hair	99	7
 220	Don't Walk Away	99	8
 221	The La La Song	99	9
+228	Werk Me	103	1
+229	Chrome Pipes	103	2
+230	Bad Boyz	103	3
+231	Fingers Up	103	4
+232	Cheap Thrills	103	5
+233	WTF	103	6
+234	What Goes Up	103	7
+235	Maniac	103	8
+236	Chead	103	9
+237	Flip the Switch	103	10
+238	The Foundation	103	11
 \.
+
+
+--
+-- Name: albums_artists_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Micah
+--
+
+SELECT pg_catalog.setval('public.albums_artists_id_seq', 1, false);
 
 
 --
 -- Name: albums_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Micah
 --
 
-SELECT pg_catalog.setval('public.albums_id_seq', 102, true);
+SELECT pg_catalog.setval('public.albums_id_seq', 103, true);
+
+
+--
+-- Name: artists_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Micah
+--
+
+SELECT pg_catalog.setval('public.artists_id_seq', 3, true);
 
 
 --
 -- Name: songs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Micah
 --
 
-SELECT pg_catalog.setval('public.songs_id_seq', 224, true);
+SELECT pg_catalog.setval('public.songs_id_seq', 238, true);
+
+
+--
+-- Name: albums_artists albums_artists_pkey; Type: CONSTRAINT; Schema: public; Owner: Micah
+--
+
+ALTER TABLE ONLY public.albums_artists
+    ADD CONSTRAINT albums_artists_pkey PRIMARY KEY (id);
 
 
 --
@@ -229,6 +366,14 @@ SELECT pg_catalog.setval('public.songs_id_seq', 224, true);
 
 ALTER TABLE ONLY public.albums
     ADD CONSTRAINT albums_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: artists artists_pkey; Type: CONSTRAINT; Schema: public; Owner: Micah
+--
+
+ALTER TABLE ONLY public.artists
+    ADD CONSTRAINT artists_pkey PRIMARY KEY (id);
 
 
 --

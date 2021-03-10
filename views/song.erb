@@ -19,7 +19,9 @@
   </form>
 
   <a href="/albums/<%= @song.album.id %>">Back to <%= @song.album.name %></a>
+
 <% else %>
-  <h3>You're searching for a song that doesn't exist!</h3>
-  <a href="/albums">Take Me Home</a>
+  <h3>Looks like this song id isn't in our catalog.</h3>
+  <a href="/albums">Return home</a>
+
 <% end %>
