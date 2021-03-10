@@ -5,7 +5,7 @@
 <form action="/artists">
   <div class="form-group">
     <label for="search">Search</label>
-    <input id="search" name="search" class="form-control" type="text" required>
+    <input id="artists_search" name="search" class="form-control" type="text" required>
   </div>
   <button type="submit" class="btn">Go!</button>
 </form>
@@ -20,4 +20,5 @@
   <p>There are currently no artists to display.</p>
 <% end %>
 
-<a href="/artists/new">Add a New Artist</a>
+<p><a href="/artists/new">Add a New Artist</a></p>
+<p><a href="/">Return home</a></p>

@@ -18,10 +18,10 @@
     <button type="submit">Delete song</button>
   </form>
 
-  <a href="/albums/<%= @song.album.id %>">Back to <%= @song.album.name %></a>
+  <p><a href="/albums/<%= @song.album.id %>">Back to <%= @song.album.name %></a></p>
 
 <% else %>
   <h3>Looks like this song id isn't in our catalog.</h3>
-  <a href="/albums">Return home</a>
+  <p><a href="/">Return home</a></p>
 
 <% end %>

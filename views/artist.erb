@@ -1,0 +1,21 @@
+<% if @artist %>
+  <h2>Artist: <%= @artist.name %></h2>
+  <h3>Artist Albums</h3>
+    <% if @artist.albums %>
+      <ol>
+        <% @artist.albums.each do |album| %>
+          <li><a href="/artists/<%= @artist.id %>/albums/<%= album.id %>"><%= album.name %></a></li>
+        <% end %>
+      </ol>
+    <% else %>
+      <p>There are no albums listed for this artist yet.</p>
+    <% end %>
+   
+  <p><a href="/artists/<%= @artist.id %>/edit">Edit artist</a></p>
+  <p><a href="/artists">Return to artist list</a></p>
+
+<% else %>
+  <h3>Looks like this artist id isn't in our catalogue.</h3>
+  <p><a href="/">Return home</a></p>
+
+<% end %>

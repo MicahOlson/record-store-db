@@ -5,7 +5,7 @@
 <form action="/albums">
   <div class="form-group">
     <label for="search">Search</label>
-    <input id="search" name="search" class="form-control" type="text" required>
+    <input id="albums_search" name="search" class="form-control" type="text" required>
   </div>
   <button type="submit" class="btn">Search</button>
 </form>
@@ -20,4 +20,5 @@
   <p>There are currently no records to display.</p>
 <% end %>
 
-<a href="/albums/new">Add a new album</a>
+<p><a href="/albums/new">Add a new album</a></p>
+<p><a href="/artists">Go to artists</a></p>
