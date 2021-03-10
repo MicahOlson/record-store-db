@@ -95,8 +95,7 @@ ALTER SEQUENCE public.albums_id_seq OWNED BY public.albums.id;
 
 CREATE TABLE public.artists (
     id integer NOT NULL,
-    name character varying,
-    album_id integer
+    name character varying
 );
 
 
@@ -216,10 +215,10 @@ COPY public.albums_artists (id, artist_id, album_id) FROM stdin;
 -- Data for Name: artists; Type: TABLE DATA; Schema: public; Owner: Micah
 --
 
-COPY public.artists (id, name, album_id) FROM stdin;
-1	The Cardigans	97
-2	The Cardigans	95
-3	The Cardigans	95
+COPY public.artists (id, name) FROM stdin;
+1	The Cardigans
+2	The Cardigans
+3	The Cardigans
 \.
 
 
@@ -349,7 +348,7 @@ SELECT pg_catalog.setval('public.artists_id_seq', 3, true);
 -- Name: songs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Micah
 --
 
-SELECT pg_catalog.setval('public.songs_id_seq', 238, true);
+SELECT pg_catalog.setval('public.songs_id_seq', 239, true);
 
 
 --
